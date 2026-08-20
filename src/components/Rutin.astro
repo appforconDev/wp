@@ -10,21 +10,25 @@
         <span class="n">STEG 1</span>
         <h3>Vi testar först</h3>
         <p>Varje tisdag uppdateras en exakt kopia av din sajt. Vi jämför skärmdumpar före och efter och testkör dina viktigaste sidor.</p>
+        <p class="without"><span>Utan detta:</span> uppdateringar körs rakt mot din riktiga sajt, och du upptäcker felet när en kund gör det.</p>
       </div>
       <div class="step">
         <span class="n">STEG 2</span>
         <h3>Sedan uppdaterar vi på riktigt</h3>
         <p>Bara när kopian är grön rör vi din riktiga sajt. Blir det rött stannar allt — och du märker ingenting.</p>
+        <p class="without"><span>Utan detta:</span> valet står mellan att chansa och att skjuta upp — tills sajten är både omodern och sårbar.</p>
       </div>
       <div class="step">
         <span class="n">STEG 3</span>
         <h3>Alltid en väg tillbaka</h3>
         <p>Daglig backup med återställningsgaranti. Kritiska säkerhetshål täpps inom 24 timmar, oavsett veckodag.</p>
+        <p class="without"><span>Utan detta:</span> en backup som aldrig testats är en förhoppning, inte en försäkring.</p>
       </div>
       <div class="step">
         <span class="n">STEG 4</span>
         <h3>En rapport i månaden</h3>
         <p>Du ser exakt vad vi gjort. Resten av tiden hör du inte av oss — det är poängen.</p>
+        <p class="without"><span>Utan detta:</span> du vet inte om någon gjort något alls — vilket oftast betyder att ingen har det.</p>
       </div>
     </div>
   </div>
@@ -38,6 +42,11 @@
   font-weight:500;letter-spacing:.08em;display:block;margin-bottom:.7rem;
 }
 .step p{font-size:.97rem;color:var(--ink-soft);margin-top:.4rem}
+.step .without{
+  font-size:.88rem;color:#8a948e;margin-top:1rem;
+  padding-top:.9rem;border-top:1px solid var(--mist);
+}
+.step .without span{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.02em}
 @media (max-width:860px){
   .steps{grid-template-columns:1fr}
 }

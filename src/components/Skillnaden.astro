@@ -1,0 +1,36 @@
+---
+---
+
+<section class="section plain">
+  <div class="wrap">
+    <p class="eyebrow">Varför inte bara ett plugin?</p>
+    <h2>Verktygen finns redan. Det är inte verktyg du saknar.</h2>
+    <p>Backup-plugins, säkerhetslarm, uppdateringsknappar — allt finns, ofta gratis. Ändå står sajter överallt med åratal gamla tillägg och backuper ingen någonsin testat. För ett plugin kör inte sig självt: någon måste installera det, läsa larmen, verifiera att backupen faktiskt går att återställa och avgöra klockan sex en tisdagsmorgon om en avvikelse ska stoppa allt.</p>
+    <p>Ett plugin piper. Vi rycker ut. Det är skillnaden mellan en brandvarnare och en larmcentral — det du betalar för är inte verktygen, utan att någon äger problemet. Med avtal, ansvar och ett nummer att ringa.</p>
+
+    <div class="stats">
+      <div class="stat"><span class="num">52</span><span class="lbl">testade uppdateringsfönster per år</span></div>
+      <div class="stat"><span class="num">365</span><span class="lbl">verifierade backuper per år</span></div>
+      <div class="stat"><span class="num">24/7</span><span class="lbl">sårbarhets- och upptidsbevakning</span></div>
+      <div class="stat"><span class="num">1</span><span class="lbl">nummer att ringa när det smäller</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.plain{background:var(--card);border-top:1px solid var(--mist);border-bottom:1px solid var(--mist)}
+.plain p{margin-top:1rem}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--mist);
+}
+.stat{display:flex;flex-direction:column;gap:.4rem}
+.stat .num{
+  font-family:'IBM Plex Mono',monospace;font-weight:500;
+  font-size:2rem;line-height:1;color:var(--pine);
+}
+.stat .lbl{font-size:.85rem;color:var(--ink-soft);line-height:1.4}
+@media (max-width:860px){
+  .stats{grid-template-columns:repeat(2,1fr);gap:22px}
+}
+</style>
