@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPress-förvaltning till fast pris — Winbergh Media</title>
+<meta name="description" content="Vi håller din WordPress-sajt uppdaterad, säker och snabb till fast pris. Varje uppdatering testas i en kopia av din sajt innan den rör den riktiga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bark:#1e2a26;      /* text, nästan svartgrön */
+  --paper:#fafaf7;     /* bakgrund */
+  --pine:#1f5c45;      /* grönt = lugnt: CTA, status */
+  --pine-deep:#174936;
+  --mist:#e7eae5;      /* linjer, kortkanter */
+  --card:#ffffff;
+  --ink-soft:#5a6660;  /* sekundärtext */
+  --signal:#b4552d;    /* rost — används en gång: när rött stoppar allt */
+  --radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background:var(--paper);color:var(--bark);
+  font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.12;letter-spacing:-0.015em}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:700}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:600;margin-bottom:.75rem}
+h3{font-size:1.1rem;font-weight:600}
+p{max-width:62ch}
+a{color:var(--pine)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+.section{padding:72px 0}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--pine);margin-bottom:.9rem;
+}
+.muted{color:var(--ink-soft)}
+
+/* ---------- Header ---------- */
+header{border-bottom:1px solid var(--mist);background:var(--paper)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--bark)}
+.logo .dot{color:var(--pine)}
+.nav a.navlink{font-size:.92rem;text-decoration:none;color:var(--ink-soft)}
+.nav a.navlink:hover{color:var(--bark)}
+
+/* ---------- Knappar ---------- */
+.btn{
+  display:inline-block;background:var(--pine);color:#fff;border:none;cursor:pointer;
+  font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:1rem;
+  padding:14px 26px;border-radius:var(--radius);text-decoration:none;
+  transition:background .15s ease;
+}
+.btn:hover{background:var(--pine-deep)}
+.btn:focus-visible{outline:3px solid var(--pine);outline-offset:3px}
+.btn-ghost{
+  display:inline-block;margin-left:14px;padding:14px 8px;color:var(--ink-soft);
+  text-decoration:none;font-size:.95rem;
+}
+.btn-ghost:hover{color:var(--bark)}
+
+/* ---------- Hero ---------- */
+.hero{padding:84px 0 76px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero p.lead{font-size:1.13rem;margin:1.2rem 0 1.8rem;color:var(--ink-soft)}
+
+/* Signaturen: driftloggen */
+.logcard{
+  background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);
+  box-shadow:0 12px 32px rgba(30,42,38,.07);overflow:hidden;
+}
+.logcard-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--mist);
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-soft);
+}
+.logcard-head .live{display:flex;align-items:center;gap:7px}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--pine);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.logline{
+  display:flex;gap:14px;align-items:baseline;
+  padding:11px 18px;border-bottom:1px solid var(--mist);
+  font-family:'IBM Plex Mono',monospace;font-size:.83rem;
+  opacity:0;transform:translateY(4px);animation:reveal .5s ease forwards;
+}
+.logline:last-child{border-bottom:none}
+.logline .t{color:var(--ink-soft);flex-shrink:0}
+.logline .ok{color:var(--pine);font-weight:500}
+.logline .stop{color:var(--signal);font-weight:500}
+.logline:nth-child(2){animation-delay:.15s}
+.logline:nth-child(3){animation-delay:.5s}
+.logline:nth-child(4){animation-delay:.85s}
+.logline:nth-child(5){animation-delay:1.2s}
+.logline:nth-child(6){animation-delay:1.7s}
+.logline:nth-child(7){animation-delay:2.2s}
+@keyframes reveal{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .logline{animation:none;opacity:1;transform:none}
+  .pulse{animation:none}
+}
+
+/* ---------- Problemet ---------- */
+.plain{background:var(--card);border-top:1px solid var(--mist);border-bottom:1px solid var(--mist)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:2rem}
+.three p{font-size:.98rem;color:var(--ink-soft)}
+.three .item{padding-top:1rem;border-top:2px solid var(--bark)}
+.closer{margin-top:2.2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.25rem}
+
+/* ---------- Rutinen ---------- */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:2.2rem}
+.step{background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);padding:26px}
+.step .n{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--pine);
+  font-weight:500;letter-spacing:.08em;display:block;margin-bottom:.7rem;
+}
+.step p{font-size:.97rem;color:var(--ink-soft);margin-top:.4rem}
+
+/* ---------- Priser ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.4rem}
+.plan{background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);padding:30px 26px;display:flex;flex-direction:column}
+.plan.featured{border:2px solid var(--pine);position:relative}
+.plan .tag{
+  position:absolute;top:-13px;left:26px;background:var(--pine);color:#fff;
+  font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 12px;border-radius:99px;
+}
+.plan h3{font-size:1.05rem}
+.price{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:2rem;margin:.5rem 0 1.2rem}
+.price span{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:.9rem;color:var(--ink-soft)}
+.plan ul{list-style:none;flex-grow:1}
+.plan li{
+  font-size:.92rem;padding:9px 0 9px 26px;border-bottom:1px solid var(--mist);
+  position:relative;color:var(--ink-soft);
+}
+.plan li:last-child{border-bottom:none}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--pine);font-weight:600}
+.plan li.no{color:#a8b0ab}
+.plan li.no::before{content:"—";color:#c6ccc8}
+.plan .btn{margin-top:1.4rem;text-align:center}
+.price-notes{margin-top:2rem;font-size:.9rem;color:var(--ink-soft);max-width:70ch}
+.price-notes strong{color:var(--bark)}
+
+/* ---------- Ärlighet ---------- */
+.honest{
+  border:1px solid var(--mist);border-left:4px solid var(--bark);
+  background:var(--card);border-radius:0 var(--radius) var(--radius) 0;
+  padding:30px 34px;max-width:760px;
+}
+.honest p{font-size:.98rem;color:var(--ink-soft)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px}
+details{border-bottom:1px solid var(--mist)}
+summary{
+  cursor:pointer;padding:18px 0;font-weight:600;font-size:1rem;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--pine);font-size:1.1rem;flex-shrink:0}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 18px;font-size:.96rem;color:var(--ink-soft)}
+
+/* ---------- CTA / formulär ---------- */
+.cta{background:var(--bark);color:var(--paper)}
+.cta h2{color:#fff}
+.cta p.sub{color:#b8c2bd;margin-bottom:1.8rem}
+.leadform{display:flex;gap:12px;flex-wrap:wrap;max-width:640px}
+.leadform input[type=text],.leadform input[type=email]{
+  flex:1 1 220px;padding:14px 16px;border-radius:var(--radius);
+  border:1px solid #3a4a44;background:#28352f;color:#fff;font-size:1rem;
+  font-family:'IBM Plex Sans',sans-serif;
+}
+.leadform input::placeholder{color:#8a968f}
+.leadform input:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.form-msg{margin-top:1rem;font-size:.95rem;min-height:1.4em}
+.form-msg.ok{color:#7fd6ae}
+.form-msg.err{color:#e8a488}
+.cta .fine{margin-top:1.6rem;font-size:.85rem;color:#8a968f}
+
+/* ---------- Footer ---------- */
+footer{padding:32px 0;font-size:.85rem;color:var(--ink-soft)}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- Mobil ---------- */
+@media (max-width:860px){
+  .section{padding:56px 0}
+  .hero{padding:56px 0}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .three,.steps,.plans{grid-template-columns:1fr}
+  .plan.featured{order:-1}
+  .btn-ghost{display:block;margin:12px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Winbergh<span class="dot">&nbsp;Media</span></a>
+    <a class="navlink" href="#priser">Priser</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Du ska aldrig behöva tänka på din WordPress-sajt igen.</h1>
+      <p class="lead">Vi håller din sajt uppdaterad, säker och snabb — till fast pris. Varje uppdatering testas i en kopia av din sajt innan den rör den riktiga. Går något ändå fel återställer vi ur gårdagens backup.</p>
+      <a class="btn" href="#halsokoll">Få en kostnadsfri hälsokoll</a>
+      <a class="btn-ghost" href="#priser">Se priser ↓</a>
+    </div>
+
+    <!-- Signaturen: driftloggen från ett riktigt patchfönster -->
+    <div class="logcard" aria-label="Exempel ur vår driftlogg">
+      <div class="logcard-head">
+        <span>driftlogg · tisdag 06:00</span>
+        <span class="live"><span class="pulse" aria-hidden="true"></span>bevakas</span>
+      </div>
+      <div class="logline"><span class="t">06:02</span><span>nattens backup verifierad <span class="ok">✓</span></span></div>
+      <div class="logline"><span class="t">06:07</span><span>kopia av sajten skapad <span class="ok">✓</span></span></div>
+      <div class="logline"><span class="t">06:14</span><span>9 uppdateringar installerade i kopian <span class="ok">✓</span></span></div>
+      <div class="logline"><span class="t">06:21</span><span>startsida &amp; kontaktformulär testade <span class="ok">✓</span></span></div>
+      <div class="logline"><span class="t">06:26</span><span>skärmdumpar jämförda — <span class="stop">avvikelse hittad</span></span></div>
+      <div class="logline"><span class="t">06:26</span><span><span class="stop">driftsättning stoppad.</span> din sajt: orörd <span class="ok">✓</span></span></div>
+      <div class="logline"><span class="t">06:31</span><span>felande tillägg undantaget, omtestat, driftsatt <span class="ok">✓</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMET -->
+<section class="section plain">
+  <div class="wrap">
+    <p class="eyebrow">Känner du igen dig?</p>
+    <h2>Sajten sköter inte sig själv. Men någon måste.</h2>
+    <div class="three">
+      <div class="item"><p>Du skjuter upp uppdateringar för att du är rädd att något ska gå sönder — och varje vecka du väntar är sajten mer sårbar.</p></div>
+      <div class="item"><p>Ingen vet riktigt vilka tillägg som är kritiska, vilka som är övergivna och vilka licenser som gått ut.</p></div>
+      <div class="item"><p>Sajten byggdes av någon som inte längre svarar i telefon.</p></div>
+    </div>
+    <p class="closer">Det är inte ditt jobb att kunna det här. Det är vårt.</p>
+  </div>
+</section>
+
+<!-- RUTINEN -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Så funkar det</p>
+    <h2>Varje vecka, samma trygga rutin</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">STEG 1</span>
+        <h3>Vi testar först</h3>
+        <p>Varje tisdag uppdateras en exakt kopia av din sajt. Vi jämför skärmdumpar före och efter och testkör dina viktigaste sidor.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 2</span>
+        <h3>Sedan uppdaterar vi på riktigt</h3>
+        <p>Bara när kopian är grön rör vi din riktiga sajt. Blir det rött stannar allt — och du märker ingenting.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 3</span>
+        <h3>Alltid en väg tillbaka</h3>
+        <p>Daglig backup med återställningsgaranti. Kritiska säkerhetshål täpps inom 24 timmar, oavsett veckodag.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 4</span>
+        <h3>En rapport i månaden</h3>
+        <p>Du ser exakt vad vi gjort. Resten av tiden hör du inte av oss — det är poängen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRISER -->
+<section class="section plain" id="priser">
+  <div class="wrap">
+    <p class="eyebrow">Priser</p>
+    <h2>Fast pris. Inga överraskningar.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Bas</h3>
+        <div class="price">795 kr<span>/mån</span></div>
+        <ul>
+          <li>Veckovisa uppdateringar, testade före driftsättning</li>
+          <li>Daglig backup + återställningsgaranti</li>
+          <li>Säkerhets- och upptidsövervakning dygnet runt</li>
+          <li>Månadsrapport</li>
+          <li class="no">Småändringar ingår ej</li>
+          <li>Påbörjad åtgärd vid driftstopp: 24 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+      <div class="plan featured">
+        <span class="tag">Vanligast</span>
+        <h3>Standard</h3>
+        <div class="price">1 295 kr<span>/mån</span></div>
+        <ul>
+          <li>Allt i Bas</li>
+          <li>Småändringar: 30 min/mån ingår</li>
+          <li>Påbörjad åtgärd vid driftstopp: 8 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+      <div class="plan">
+        <h3>E-handel</h3>
+        <div class="price">2 495 kr<span>/mån</span></div>
+        <ul>
+          <li>Allt i Standard</li>
+          <li>Småändringar: 60 min/mån ingår</li>
+          <li>WooCommerce-bevakning — kassaflödet testas varje vecka</li>
+          <li>Påbörjad åtgärd vid driftstopp: 4 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+    </div>
+    <p class="price-notes">
+      <strong>Uppstart 1 995 kr</strong> — vi inventerar sajten, samlar alla inloggningar och flyttar den till vår driftmiljö med testkopia och daglig backup. Flytten ingår, och din e-post rörs aldrig.
+      <strong>Betala per år → två månader på köpet.</strong> Alla priser exkl. moms. 3 månaders bindning, sedan en månads uppsägning. Priserna gäller sajter i normalskick — är sajten hackad eller allvarligt eftersatt börjar vi med en engångssanering till fast offert.
+    </p>
+  </div>
+</section>
+
+<!-- ÄRLIGHET -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Det finstilta, i klarspråk</p>
+    <h2>Det här ingår inte</h2>
+    <div class="honest">
+      <p>Ny design, nya funktioner, texter och SEO-arbete ingår inte i månadspriset — det offereras separat, alltid innan vi börjar. Vi lovar inte heller att inget någonsin går sönder. Vi lovar att det upptäcks, att det finns en backup från igår, och att någon tar tag i det direkt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section plain">
+  <div class="wrap">
+    <p class="eyebrow">Vanliga frågor</p>
+    <h2>Bra frågor, raka svar</h2>
+    <div class="faq">
+      <details>
+        <summary>Måste vi byta webbhotell?</summary>
+        <p>Ja — flytten ingår i uppstarten. Det är i vår miljö vi kan testa varje uppdatering i en kopia av sajten innan den går live. Det är den rutinen du betalar för. Din e-post rörs aldrig — den bor kvar precis där den är.</p>
+      </details>
+      <details>
+        <summary>Vad händer om sajten går sönder?</summary>
+        <p>Vi återställer till senaste fungerande backup, oftast inom minuter, och felsöker sedan i lugn och ro i kopian — inte på din live-sajt.</p>
+      </details>
+      <details>
+        <summary>Vem äger sajten?</summary>
+        <p>Du. Alltid. Säger du upp avtalet hjälper vi till med flytten därifrån också.</p>
+      </details>
+      <details>
+        <summary>Vi har premiumtillägg med licenser — hur funkar det?</summary>
+        <p>Vi håller koll på förnyelsedatum åt dig och flaggar 30 dagar innan något går ut. Licenserna står i ditt namn eller förvaltas av oss till självkostnad — du väljer.</p>
+      </details>
+      <details>
+        <summary>Kan ni göra ändringar på sajten?</summary>
+        <p>Ja. Standard och E-handel har tid inkluderad varje månad. Större jobb får du alltid pris på innan vi börjar — inget dyker upp på fakturan i efterhand.</p>
+      </details>
+      <details>
+        <summary>Hur snabbt kommer vi igång?</summary>
+        <p>Normalt inom en vecka från signerat avtal.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORMULÄR -->
+<section class="section cta" id="halsokoll">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#7fd6ae">Kostnadsfritt, ingen förpliktelse</p>
+    <h2>Börja med en hälsokoll av din sajt</h2>
+    <p class="sub">Vi skannar din sajt utifrån — säkerhet, hastighet, övergivna tillägg — och skickar en rapport på max fyra sidor i klarspråk. Om allt ser bra ut säger vi det.</p>
+    <form class="leadform" id="leadform" novalidate>
+      <input type="text" name="domain" placeholder="din-sajt.se" aria-label="Din sajts adress" required>
+      <input type="email" name="email" placeholder="namn@foretag.se" aria-label="Din e-postadress" required>
+      <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit">Skicka mig rapporten</button>
+    </form>
+    <p class="form-msg" id="formmsg" role="status" aria-live="polite"></p>
+    <p class="fine">Vi använder adressen för att skicka rapporten och en eventuell uppföljning. Inget nyhetsbrev, ingen spam.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span>Winbergh Media, Bollnäs · org.nr [___]</span>
+    <span>Byggd och driftad i Sverige · Backuper lagras inom EU</span>
+    <span><a href="/villkor">Avtalsvillkor</a> · <a href="/integritet">Integritetspolicy</a></span>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById('leadform');
+const msg = document.getElementById('formmsg');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.className = 'form-msg';
+  const data = Object.fromEntries(new FormData(form));
+  if (!data.domain || !data.email || !data.email.includes('@')) {
+    msg.textContent = 'Fyll i både sajtens adress och en giltig e-postadress.';
+    msg.classList.add('err');
+    return;
+  }
+  const btn = form.querySelector('button');
+  btn.disabled = true; btn.textContent = 'Skickar…';
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error();
+    form.reset();
+    msg.textContent = 'Tack! Rapporten landar i din inkorg inom två arbetsdagar.';
+    msg.classList.add('ok');
+    btn.textContent = 'Skickat ✓';
+  } catch {
+    msg.textContent = 'Något gick fel — mejla oss direkt på hej@winberghmedia.se så löser vi det.';
+    msg.classList.add('err');
+    btn.disabled = false; btn.textContent = 'Skicka mig rapporten';
+  }
+});
+</script>
+</body>
+</html>
