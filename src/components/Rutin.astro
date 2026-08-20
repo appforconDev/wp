@@ -35,18 +35,18 @@
 </section>
 
 <style>
-.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-6);margin-top:var(--sp-8)}
-.step{background:var(--card);border:var(--bw) solid var(--mist);border-radius:var(--radius);padding:var(--sp-6)}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-24);margin-top:var(--sp-32)}
+.step{background:var(--card);border:var(--bw) solid var(--mist);border-radius:var(--radius);padding:var(--sp-32);box-shadow:var(--shadow-card)}
 .step .n{
-  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--pine);
-  font-weight:var(--fw-medium);letter-spacing:var(--ls-label-sm);display:block;margin-bottom:var(--sp-3);
+  font-family:var(--font-mono);font-size:var(--fs-footnote);color:var(--pine);
+  font-weight:var(--fw-medium);letter-spacing:.08em;display:block;margin-bottom:var(--sp-16);
 }
-.step p{font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-2)}
+.step p{font-size:var(--fs-body);color:var(--ink-soft);margin-top:var(--sp-8)}
 .step .without{
-  font-size:var(--fs-sm);color:var(--ink-faint);margin-top:var(--sp-4);
-  padding-top:var(--sp-3);border-top:var(--bw) solid var(--mist);
+  font-size:var(--fs-footnote);color:var(--ink-faint);margin-top:var(--sp-16);
+  padding-top:var(--sp-16);border-top:var(--bw) solid var(--mist);
 }
-.step .without span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.02em}
+.step .without span{font-family:var(--font-mono);font-size:var(--fs-footnote);letter-spacing:.02em}
 @media (max-width:860px){
   .steps{grid-template-columns:1fr}
 }

@@ -39,16 +39,16 @@
 </section>
 
 <style>
-.faq{max-width:var(--measure-prose)}
+.faq{max-width:var(--measure)}
 details{border-bottom:var(--bw) solid var(--mist)}
 summary{
-  cursor:pointer;padding:var(--sp-5) 0;font-weight:var(--fw-semibold);font-size:var(--fs-base);list-style:none;
-  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
+  cursor:pointer;padding:var(--sp-16) 0;font-weight:var(--fw-semibold);font-size:var(--fs-body);list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-16);
   transition:color var(--t-fast);
 }
 summary:hover{color:var(--pine)}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--font-mono);color:var(--pine);font-size:var(--fs-md);flex-shrink:0}
+summary::after{content:"+";font-family:var(--font-mono);color:var(--pine);font-size:var(--fs-body-lg);flex-shrink:0}
 details[open] summary::after{content:"–"}
-details p{padding:0 0 var(--sp-5);font-size:var(--fs-sm);color:var(--ink-soft)}
+details p{padding:0 0 var(--sp-16);font-size:var(--fs-body);color:var(--ink-soft)}
 </style>

@@ -1,89 +1,96 @@
 :root{
-  /* ---------- Palett (låst — behåll) ---------- */
+  /* ---------- Palett — LÅST (brand vinner enligt skillens scope-regel) ---------- */
   --bark:#1e2a26;      /* text, nästan svartgrön */
   --paper:#fafaf7;     /* bakgrund */
-  --pine:#1f5c45;      /* grönt = lugnt: CTA, status */
-  --pine-deep:#174936;
-  --mist:#e7eae5;      /* linjer, kortkanter */
+  --pine:#1f5c45;      /* enda accent = --accent i profilen */
+  --pine-deep:#174936; /* accent hover (~6% mörkare) */
+  --mist:#e7eae5;      /* = --border i profilen */
   --card:#ffffff;
-  --ink-soft:#5a6660;  /* sekundärtext */
-  --ink-faint:#8a948e; /* dämpad text (samma neutralfamilj) */
+  --ink-soft:#5a6660;  /* sekundärtext = --text-body */
+  --ink-faint:#6a746e;  /* dämpad — ≥4.5:1 AA på vitt (4.84:1) */
   --ink-faintest:#a8b0ab;
-  --line-2:#c6ccc8;    /* svagare linje/tecken */
-  --signal:#b4552d;    /* rost — används en gång: när rött stoppar allt */
+  --line-2:#c6ccc8;
+  --signal:#b4552d;    /* rost — endast i Driftlogg */
 
-  /* ---------- Typsnitt ---------- */
+  /* ---------- Typsnitt — brand (Bricolage + IBM Plex), vinner enligt scope-regel ---------- */
   --font-display:'Bricolage Grotesque',sans-serif;
   --font-sans:'IBM Plex Sans',system-ui,sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
 
-  /* ---------- Typskala (modulär, editorial) ---------- */
-  --fs-2xs:.75rem;      /* 12 — taggar */
-  --fs-xs:.8125rem;     /* 13 — mono-etiketter, eyebrow, finstilt */
-  --fs-sm:.9375rem;     /* 15 — kort-/listtext */
-  --fs-base:1.0625rem;  /* 17 — brödtext */
-  --fs-md:1.1875rem;    /* 19 — ingress */
-  --fs-lg:1.3125rem;    /* 21 — closer */
-  --fs-xl:2rem;         /* 32 — pris, statistik */
-  --fs-h3:1.125rem;
-  --fs-h1:clamp(2.1rem,5vw,3.4rem);
-  --fs-h2:clamp(1.5rem,3.2vw,2.1rem);
+  /* ---------- Typskala — stripe-editorial exakt ---------- */
+  --fs-hero:clamp(2.5rem,4vw + 1.5rem,4.75rem); /* 40 → 76 */
+  --fs-head:clamp(1.875rem,3vw + .5rem,2.5rem);  /* 30 → 40 */
+  --fs-title:1.125rem;    /* 18 — feature title */
+  --fs-body:1rem;         /* 16 — brödtext */
+  --fs-body-lg:1.125rem;  /* 18 — hero-adjacent brödtext */
+  --fs-eyebrow:.9375rem;  /* 15 */
+  --fs-footnote:.875rem;  /* 14 */
+  --fs-price:2rem;        /* prisfigur — utanför profilens roller, tokeniserad */
 
-  /* ---------- Radhöjd / vikt / spärr ---------- */
-  --lh-tight:1.12;
-  --lh-snug:1.4;
-  --lh-body:1.6;
+  /* Radhöjd (profil) */
+  --lh-hero:1.04;
+  --lh-head:1.12;
+  --lh-title:1.3;
+  --lh-body:1.55;
+  --lh-eyebrow:1.2;
+  --lh-foot:1.5;
+
+  /* Vikt (profil: 400/500/600/700) */
   --fw-regular:400;
   --fw-medium:500;
   --fw-semibold:600;
   --fw-bold:700;
-  --ls-tight:-0.015em;
-  --ls-label:.12em;
-  --ls-label-sm:.08em;
-  --ls-tag:.06em;
 
-  /* ---------- Spacing (4px-grid) ---------- */
-  --sp-1:.25rem;  --sp-2:.5rem;  --sp-3:.75rem; --sp-4:1rem;
-  --sp-5:1.25rem; --sp-6:1.5rem; --sp-7:1.75rem; --sp-8:2rem;
-  --sp-10:2.5rem; --sp-12:3rem;  --sp-14:3.5rem;
+  /* Spärr (profil) */
+  --track-hero:-0.03em;
+  --track-head:-0.02em;
+  --track-title:-0.01em;
+  --track-flat:0;
 
-  /* ---------- Sektions- och layoutrytm ---------- */
-  --section-y:clamp(6rem,9vw,10rem);   /* 96–160 desktop */
-  --hero-y:clamp(5rem,7vw,7.5rem);     /* 80–120 */
-  --container:1060px;
-  --container-pad:var(--sp-5);
-  --measure:62ch;
+  /* ---------- Spacing — 8px-bas, profilens skala 8/16/24/32/48/64/80/112 ---------- */
+  --sp-4:.25rem;    /* dokumenterad halvsteg för mikro-padding (taggar) */
+  --sp-8:.5rem;
+  --sp-16:1rem;
+  --sp-24:1.5rem;
+  --sp-32:2rem;
+  --sp-48:3rem;
+  --sp-64:4rem;
+  --sp-80:5rem;
+  --sp-112:7rem;
+
+  /* ---------- Sektion & layout (profil) ---------- */
+  --section-y:clamp(6rem,8vw,7rem);  /* 96–112 desktop */
+  --section-y-mobile:3.5rem;         /* 56 mobil */
+  --container:1080px;
+  --pad-x:var(--sp-24);
+  --measure:66ch;                    /* 60–70ch body */
   --measure-wide:70ch;
-  --measure-prose:46rem;
 
-  /* ---------- Radie / kant ---------- */
-  --radius:10px;
-  --radius-sm:6px;
+  /* ---------- Radie / kant (profil: 8 / pill) ---------- */
+  --radius:8px;
   --radius-pill:999px;
   --bw:1px;
-  --accent-bw:2px;      /* accentkant (korttopp, utvald plan) */
-  --accent-bw-lg:4px;   /* tjock accentkant (citat/ärlighet) */
-  --tag-offset:-13px;   /* pill som sitter på kortkanten */
-  --field-min:220px;    /* input flex-basis */
-  --form-max:40rem;     /* formulärbredd */
+  --accent-bw:2px;      /* utvald plan / korttopp */
+  --accent-bw-lg:4px;   /* citatkant (Ärlighet) */
+  --tag-offset:-13px;   /* pill på kortkanten */
 
-  /* ---------- Skuggor (mjuka, lager) ---------- */
-  --shadow-sm:0 1px 2px rgba(30,42,38,.04),0 2px 4px rgba(30,42,38,.05);
-  --shadow-md:0 2px 6px rgba(30,42,38,.05),0 12px 32px rgba(30,42,38,.07);
-  --shadow-lg:0 4px 10px rgba(30,42,38,.05),0 18px 44px rgba(30,42,38,.10);
+  /* ---------- Skuggor — stripe-editorial exakt ---------- */
+  --shadow-card:0 2px 5px rgba(60,66,87,0.06);
+  --shadow-pop:0 15px 35px rgba(60,66,87,0.08),0 5px 15px rgba(0,0,0,0.06);
 
-  /* ---------- Kontroller (knappar, inputs, nav) ---------- */
-  --btn-py:.875rem;   /* 14 */
-  --btn-px:1.625rem;  /* 26 */
-  --input-py:.875rem;
-  --input-px:1rem;
-  --nav-py:1.125rem;  /* 18 */
+  /* ---------- Kontroller (profil) ---------- */
+  --btn-h:40px;
+  --btn-px:18px;
+  --btn-fs:var(--fs-eyebrow); /* 15 */
+  --btn-fw:var(--fw-medium);  /* 500 */
+  --nav-h:60px;
+  --field-min:220px;
+  --form-max:40rem;
   --focus-w:3px;
   --focus-offset:3px;
   --ring:var(--pine);
-  --lift:1px;         /* hover-lyft */
 
-  /* ---------- Rörelse ---------- */
+  /* ---------- Rörelse (profil 150–200ms) ---------- */
   --t-fast:.15s ease;
   --t-med:.2s ease;
 }
@@ -93,69 +100,73 @@ html{scroll-behavior:smooth}
 body{
   font-family:var(--font-sans);
   background:var(--paper);color:var(--bark);
-  font-size:var(--fs-base);line-height:var(--lh-body);
+  font-size:var(--fs-body);line-height:var(--lh-body);
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:var(--font-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight)}
-h1{font-size:var(--fs-h1);font-weight:var(--fw-bold)}
-h2{font-size:var(--fs-h2);font-weight:var(--fw-semibold);margin-bottom:var(--sp-3);max-width:20ch}
-h3{font-size:var(--fs-h3);font-weight:var(--fw-semibold)}
+h1,h2,h3{font-family:var(--font-display)}
+h1{font-size:var(--fs-hero);font-weight:var(--fw-bold);line-height:var(--lh-hero);letter-spacing:var(--track-hero)}
+h2{font-size:var(--fs-head);font-weight:var(--fw-bold);line-height:var(--lh-head);letter-spacing:var(--track-head);margin-bottom:var(--sp-16);max-width:20ch}
+h3{font-size:var(--fs-title);font-weight:var(--fw-semibold);line-height:var(--lh-title);letter-spacing:var(--track-title)}
 p{max-width:var(--measure)}
 a{color:var(--pine)}
-.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--container-pad)}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--pad-x)}
 .section{padding:var(--section-y) 0}
+
+/* Eyebrow — profilens signaturdrag: accentfärgad, 15/600, sentence case, tracking 0 */
 .eyebrow{
-  font-family:var(--font-mono);font-size:var(--fs-xs);font-weight:var(--fw-medium);
-  text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--pine);
-  margin-bottom:var(--sp-4);
+  font-family:var(--font-sans);font-size:var(--fs-eyebrow);font-weight:var(--fw-semibold);
+  line-height:var(--lh-eyebrow);letter-spacing:var(--track-flat);color:var(--pine);
+  margin-bottom:var(--sp-16);
 }
 .muted{color:var(--ink-soft)}
 
 /* ---------- Knappar ---------- */
+/* Primär: pill 999px, höjd 40, padding 0 18, 15/500, accent, hover mörkare */
 .btn{
-  display:inline-block;background:var(--pine);color:#fff;border:none;cursor:pointer;
-  font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:var(--fs-base);
-  padding:var(--btn-py) var(--btn-px);border-radius:var(--radius);text-decoration:none;
-  box-shadow:var(--shadow-sm);
-  transition:background var(--t-fast),box-shadow var(--t-fast),transform var(--t-fast);
+  display:inline-flex;align-items:center;justify-content:center;
+  height:var(--btn-h);padding:0 var(--btn-px);border:none;cursor:pointer;
+  background:var(--pine);color:#fff;text-decoration:none;
+  font-family:var(--font-sans);font-weight:var(--btn-fw);font-size:var(--btn-fs);
+  border-radius:var(--radius-pill);
+  transition:background var(--t-fast);
 }
-.btn:hover{background:var(--pine-deep);box-shadow:var(--shadow-md);transform:translateY(calc(-1 * var(--lift)))}
-.btn:active{transform:translateY(0)}
+.btn:hover{background:var(--pine-deep)}
 .btn:focus-visible{outline:var(--focus-w) solid var(--ring);outline-offset:var(--focus-offset)}
+/* Sekundär: samma geometri, transparent, 1px kant */
 .btn-ghost{
-  display:inline-block;margin-left:var(--sp-3);padding:var(--btn-py) var(--sp-2);
-  color:var(--ink-soft);text-decoration:none;font-size:var(--fs-sm);
-  transition:color var(--t-fast);
+  display:inline-flex;align-items:center;justify-content:center;
+  height:var(--btn-h);padding:0 var(--btn-px);margin-left:var(--sp-16);
+  background:transparent;color:var(--bark);text-decoration:none;
+  font-family:var(--font-sans);font-weight:var(--btn-fw);font-size:var(--btn-fs);
+  border:var(--bw) solid var(--mist);border-radius:var(--radius-pill);
+  transition:border-color var(--t-fast),color var(--t-fast);
 }
-.btn-ghost:hover{color:var(--bark)}
+.btn-ghost:hover{border-color:var(--pine);color:var(--pine)}
+.btn-ghost:focus-visible{outline:var(--focus-w) solid var(--ring);outline-offset:var(--focus-offset)}
 
 /* ---------- Header ---------- */
 header{border-bottom:var(--bw) solid var(--mist);background:var(--paper)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:var(--nav-py) 0}
-.logo{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--fs-base);text-decoration:none;color:var(--bark)}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:var(--nav-h)}
+.logo{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--fs-title);text-decoration:none;color:var(--bark)}
 .logo .dot{color:var(--pine)}
-.nav a.navlink{font-size:var(--fs-sm);text-decoration:none;color:var(--ink-soft);transition:color var(--t-fast)}
+.nav a.navlink{font-size:var(--fs-eyebrow);font-weight:var(--fw-medium);text-decoration:none;color:var(--ink-soft);transition:color var(--t-fast)}
 .nav a.navlink:hover{color:var(--bark)}
 
 /* ---------- Footer ---------- */
-footer{padding:var(--sp-8) 0;font-size:var(--fs-sm);color:var(--ink-soft)}
-footer .row{display:flex;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap}
+footer{padding:var(--sp-80) 0 var(--sp-32);font-size:var(--fs-footnote);color:var(--ink-soft)}
+footer .row{display:flex;justify-content:space-between;gap:var(--sp-16);flex-wrap:wrap}
 
 /* ---------- Innehållssidor (villkor/integritet) ---------- */
-.prose{max-width:var(--measure-prose)}
-.prose h2{margin-top:var(--sp-10)}
-.prose h3{margin-top:var(--sp-7);margin-bottom:var(--sp-1)}
-.prose p{margin-top:var(--sp-3);color:var(--ink-soft)}
-.prose ul{margin:var(--sp-3) 0 var(--sp-3) var(--sp-5);color:var(--ink-soft)}
-.prose li{padding:var(--sp-1) 0}
-.prose .lead-back{display:inline-block;margin-bottom:var(--sp-8);font-family:var(--font-mono);font-size:var(--fs-xs)}
+.prose{max-width:var(--measure)}
+.prose h2{margin-top:var(--sp-48)}
+.prose h3{margin-top:var(--sp-24);margin-bottom:var(--sp-8)}
+.prose p{margin-top:var(--sp-16);color:var(--ink-soft)}
+.prose ul{margin:var(--sp-16) 0 var(--sp-16) var(--sp-24);color:var(--ink-soft)}
+.prose li{padding:var(--sp-8) 0}
+.prose .lead-back{display:inline-block;margin-bottom:var(--sp-32);font-family:var(--font-mono);font-size:var(--fs-footnote)}
 
 /* ---------- Mobil ---------- */
 @media (max-width:860px){
-  :root{--section-y:var(--sp-14);--hero-y:var(--sp-14)}
-  .btn-ghost{display:block;margin:var(--sp-3) 0 0}
-}
-@media (prefers-reduced-motion:reduce){
-  .btn{transition:background var(--t-fast)}
-  .btn:hover{transform:none}
+  :root{--section-y:var(--section-y-mobile)}
+  .btn-ghost{display:inline-flex;margin:var(--sp-16) 0 0}
 }
