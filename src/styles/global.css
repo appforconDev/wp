@@ -1,4 +1,5 @@
 :root{
+  /* ---------- Palett (låst — behåll) ---------- */
   --bark:#1e2a26;      /* text, nästan svartgrön */
   --paper:#fafaf7;     /* bakgrund */
   --pine:#1f5c45;      /* grönt = lugnt: CTA, status */
@@ -6,69 +7,155 @@
   --mist:#e7eae5;      /* linjer, kortkanter */
   --card:#ffffff;
   --ink-soft:#5a6660;  /* sekundärtext */
+  --ink-faint:#8a948e; /* dämpad text (samma neutralfamilj) */
+  --ink-faintest:#a8b0ab;
+  --line-2:#c6ccc8;    /* svagare linje/tecken */
   --signal:#b4552d;    /* rost — används en gång: när rött stoppar allt */
+
+  /* ---------- Typsnitt ---------- */
+  --font-display:'Bricolage Grotesque',sans-serif;
+  --font-sans:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+
+  /* ---------- Typskala (modulär, editorial) ---------- */
+  --fs-2xs:.75rem;      /* 12 — taggar */
+  --fs-xs:.8125rem;     /* 13 — mono-etiketter, eyebrow, finstilt */
+  --fs-sm:.9375rem;     /* 15 — kort-/listtext */
+  --fs-base:1.0625rem;  /* 17 — brödtext */
+  --fs-md:1.1875rem;    /* 19 — ingress */
+  --fs-lg:1.3125rem;    /* 21 — closer */
+  --fs-xl:2rem;         /* 32 — pris, statistik */
+  --fs-h3:1.125rem;
+  --fs-h1:clamp(2.1rem,5vw,3.4rem);
+  --fs-h2:clamp(1.5rem,3.2vw,2.1rem);
+
+  /* ---------- Radhöjd / vikt / spärr ---------- */
+  --lh-tight:1.12;
+  --lh-snug:1.4;
+  --lh-body:1.6;
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+  --ls-tight:-0.015em;
+  --ls-label:.12em;
+  --ls-label-sm:.08em;
+  --ls-tag:.06em;
+
+  /* ---------- Spacing (4px-grid) ---------- */
+  --sp-1:.25rem;  --sp-2:.5rem;  --sp-3:.75rem; --sp-4:1rem;
+  --sp-5:1.25rem; --sp-6:1.5rem; --sp-7:1.75rem; --sp-8:2rem;
+  --sp-10:2.5rem; --sp-12:3rem;  --sp-14:3.5rem;
+
+  /* ---------- Sektions- och layoutrytm ---------- */
+  --section-y:clamp(6rem,9vw,10rem);   /* 96–160 desktop */
+  --hero-y:clamp(5rem,7vw,7.5rem);     /* 80–120 */
+  --container:1060px;
+  --container-pad:var(--sp-5);
+  --measure:62ch;
+  --measure-wide:70ch;
+  --measure-prose:46rem;
+
+  /* ---------- Radie / kant ---------- */
   --radius:10px;
+  --radius-sm:6px;
+  --radius-pill:999px;
+  --bw:1px;
+  --accent-bw:2px;      /* accentkant (korttopp, utvald plan) */
+  --accent-bw-lg:4px;   /* tjock accentkant (citat/ärlighet) */
+  --tag-offset:-13px;   /* pill som sitter på kortkanten */
+  --field-min:220px;    /* input flex-basis */
+  --form-max:40rem;     /* formulärbredd */
+
+  /* ---------- Skuggor (mjuka, lager) ---------- */
+  --shadow-sm:0 1px 2px rgba(30,42,38,.04),0 2px 4px rgba(30,42,38,.05);
+  --shadow-md:0 2px 6px rgba(30,42,38,.05),0 12px 32px rgba(30,42,38,.07);
+  --shadow-lg:0 4px 10px rgba(30,42,38,.05),0 18px 44px rgba(30,42,38,.10);
+
+  /* ---------- Kontroller (knappar, inputs, nav) ---------- */
+  --btn-py:.875rem;   /* 14 */
+  --btn-px:1.625rem;  /* 26 */
+  --input-py:.875rem;
+  --input-px:1rem;
+  --nav-py:1.125rem;  /* 18 */
+  --focus-w:3px;
+  --focus-offset:3px;
+  --ring:var(--pine);
+  --lift:1px;         /* hover-lyft */
+
+  /* ---------- Rörelse ---------- */
+  --t-fast:.15s ease;
+  --t-med:.2s ease;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-family:var(--font-sans);
   background:var(--paper);color:var(--bark);
-  font-size:17px;line-height:1.65;
+  font-size:var(--fs-base);line-height:var(--lh-body);
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.12;letter-spacing:-0.015em}
-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:700}
-h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:600;margin-bottom:.75rem}
-h3{font-size:1.1rem;font-weight:600}
-p{max-width:62ch}
+h1,h2,h3{font-family:var(--font-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight)}
+h1{font-size:var(--fs-h1);font-weight:var(--fw-bold)}
+h2{font-size:var(--fs-h2);font-weight:var(--fw-semibold);margin-bottom:var(--sp-3);max-width:20ch}
+h3{font-size:var(--fs-h3);font-weight:var(--fw-semibold)}
+p{max-width:var(--measure)}
 a{color:var(--pine)}
-.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
-.section{padding:72px 0}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--container-pad)}
+.section{padding:var(--section-y) 0}
 .eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:500;
-  text-transform:uppercase;letter-spacing:.12em;color:var(--pine);margin-bottom:.9rem;
+  font-family:var(--font-mono);font-size:var(--fs-xs);font-weight:var(--fw-medium);
+  text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--pine);
+  margin-bottom:var(--sp-4);
 }
 .muted{color:var(--ink-soft)}
 
 /* ---------- Knappar ---------- */
 .btn{
   display:inline-block;background:var(--pine);color:#fff;border:none;cursor:pointer;
-  font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:1rem;
-  padding:14px 26px;border-radius:var(--radius);text-decoration:none;
-  transition:background .15s ease;
+  font-family:var(--font-sans);font-weight:var(--fw-semibold);font-size:var(--fs-base);
+  padding:var(--btn-py) var(--btn-px);border-radius:var(--radius);text-decoration:none;
+  box-shadow:var(--shadow-sm);
+  transition:background var(--t-fast),box-shadow var(--t-fast),transform var(--t-fast);
 }
-.btn:hover{background:var(--pine-deep)}
-.btn:focus-visible{outline:3px solid var(--pine);outline-offset:3px}
+.btn:hover{background:var(--pine-deep);box-shadow:var(--shadow-md);transform:translateY(calc(-1 * var(--lift)))}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:var(--focus-w) solid var(--ring);outline-offset:var(--focus-offset)}
 .btn-ghost{
-  display:inline-block;margin-left:14px;padding:14px 8px;color:var(--ink-soft);
-  text-decoration:none;font-size:.95rem;
+  display:inline-block;margin-left:var(--sp-3);padding:var(--btn-py) var(--sp-2);
+  color:var(--ink-soft);text-decoration:none;font-size:var(--fs-sm);
+  transition:color var(--t-fast);
 }
 .btn-ghost:hover{color:var(--bark)}
 
 /* ---------- Header ---------- */
-header{border-bottom:1px solid var(--mist);background:var(--paper)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--bark)}
+header{border-bottom:var(--bw) solid var(--mist);background:var(--paper)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:var(--nav-py) 0}
+.logo{font-family:var(--font-display);font-weight:var(--fw-bold);font-size:var(--fs-base);text-decoration:none;color:var(--bark)}
 .logo .dot{color:var(--pine)}
-.nav a.navlink{font-size:.92rem;text-decoration:none;color:var(--ink-soft)}
+.nav a.navlink{font-size:var(--fs-sm);text-decoration:none;color:var(--ink-soft);transition:color var(--t-fast)}
 .nav a.navlink:hover{color:var(--bark)}
 
 /* ---------- Footer ---------- */
-footer{padding:32px 0;font-size:.85rem;color:var(--ink-soft)}
-footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer{padding:var(--sp-8) 0;font-size:var(--fs-sm);color:var(--ink-soft)}
+footer .row{display:flex;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap}
 
 /* ---------- Innehållssidor (villkor/integritet) ---------- */
-.prose{max-width:760px}
-.prose h2{margin-top:2.4rem}
-.prose h3{margin-top:1.8rem;margin-bottom:.4rem}
-.prose p{margin-top:.8rem;color:var(--ink-soft)}
-.prose ul{margin:.8rem 0 .8rem 1.2rem;color:var(--ink-soft)}
-.prose li{padding:4px 0}
-.prose .lead-back{display:inline-block;margin-bottom:2rem;font-family:'IBM Plex Mono',monospace;font-size:.85rem}
+.prose{max-width:var(--measure-prose)}
+.prose h2{margin-top:var(--sp-10)}
+.prose h3{margin-top:var(--sp-7);margin-bottom:var(--sp-1)}
+.prose p{margin-top:var(--sp-3);color:var(--ink-soft)}
+.prose ul{margin:var(--sp-3) 0 var(--sp-3) var(--sp-5);color:var(--ink-soft)}
+.prose li{padding:var(--sp-1) 0}
+.prose .lead-back{display:inline-block;margin-bottom:var(--sp-8);font-family:var(--font-mono);font-size:var(--fs-xs)}
 
 /* ---------- Mobil ---------- */
 @media (max-width:860px){
-  .section{padding:56px 0}
-  .btn-ghost{display:block;margin:12px 0 0}
+  :root{--section-y:var(--sp-14);--hero-y:var(--sp-14)}
+  .btn-ghost{display:block;margin:var(--sp-3) 0 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn{transition:background var(--t-fast)}
+  .btn:hover{transform:none}
 }

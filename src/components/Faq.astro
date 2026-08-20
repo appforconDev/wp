@@ -39,14 +39,16 @@
 </section>
 
 <style>
-.faq{max-width:760px}
-details{border-bottom:1px solid var(--mist)}
+.faq{max-width:var(--measure-prose)}
+details{border-bottom:var(--bw) solid var(--mist)}
 summary{
-  cursor:pointer;padding:18px 0;font-weight:600;font-size:1rem;list-style:none;
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  cursor:pointer;padding:var(--sp-5) 0;font-weight:var(--fw-semibold);font-size:var(--fs-base);list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);
+  transition:color var(--t-fast);
 }
+summary:hover{color:var(--pine)}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--pine);font-size:1.1rem;flex-shrink:0}
+summary::after{content:"+";font-family:var(--font-mono);color:var(--pine);font-size:var(--fs-md);flex-shrink:0}
 details[open] summary::after{content:"–"}
-details p{padding:0 0 18px;font-size:.96rem;color:var(--ink-soft)}
+details p{padding:0 0 var(--sp-5);font-size:var(--fs-sm);color:var(--ink-soft)}
 </style>

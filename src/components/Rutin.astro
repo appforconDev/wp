@@ -35,18 +35,18 @@
 </section>
 
 <style>
-.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:2.2rem}
-.step{background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);padding:26px}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-6);margin-top:var(--sp-8)}
+.step{background:var(--card);border:var(--bw) solid var(--mist);border-radius:var(--radius);padding:var(--sp-6)}
 .step .n{
-  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--pine);
-  font-weight:500;letter-spacing:.08em;display:block;margin-bottom:.7rem;
+  font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--pine);
+  font-weight:var(--fw-medium);letter-spacing:var(--ls-label-sm);display:block;margin-bottom:var(--sp-3);
 }
-.step p{font-size:.97rem;color:var(--ink-soft);margin-top:.4rem}
+.step p{font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--sp-2)}
 .step .without{
-  font-size:.88rem;color:#8a948e;margin-top:1rem;
-  padding-top:.9rem;border-top:1px solid var(--mist);
+  font-size:var(--fs-sm);color:var(--ink-faint);margin-top:var(--sp-4);
+  padding-top:var(--sp-3);border-top:var(--bw) solid var(--mist);
 }
-.step .without span{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.02em}
+.step .without span{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.02em}
 @media (max-width:860px){
   .steps{grid-template-columns:1fr}
 }

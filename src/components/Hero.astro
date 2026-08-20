@@ -16,11 +16,10 @@ import Driftlogg from './Driftlogg.astro';
 </section>
 
 <style>
-.hero{padding:84px 0 76px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero p.lead{font-size:1.13rem;margin:1.2rem 0 1.8rem;color:var(--ink-soft)}
+.hero{padding:var(--hero-y) 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--sp-14);align-items:center}
+.hero p.lead{font-size:var(--fs-md);margin:var(--sp-5) 0 var(--sp-7);color:var(--ink-soft);max-width:var(--measure)}
 @media (max-width:860px){
-  .hero{padding:56px 0}
-  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid{grid-template-columns:1fr;gap:var(--sp-10)}
 }
 </style>

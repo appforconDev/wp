@@ -15,11 +15,11 @@
 </section>
 
 <style>
-.plain{background:var(--card);border-top:1px solid var(--mist);border-bottom:1px solid var(--mist)}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:2rem}
-.three p{font-size:.98rem;color:var(--ink-soft)}
-.three .item{padding-top:1rem;border-top:2px solid var(--bark)}
-.closer{margin-top:2.2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.25rem}
+.plain{background:var(--card);border-top:var(--bw) solid var(--mist);border-bottom:var(--bw) solid var(--mist)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-7);margin-top:var(--sp-8)}
+.three p{font-size:var(--fs-sm);color:var(--ink-soft)}
+.three .item{padding-top:var(--sp-4);border-top:var(--accent-bw) solid var(--bark)}
+.closer{margin-top:var(--sp-8);font-family:var(--font-display);font-weight:var(--fw-semibold);font-size:var(--fs-lg)}
 @media (max-width:860px){
   .three{grid-template-columns:1fr}
 }

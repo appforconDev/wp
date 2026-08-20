@@ -1,0 +1,38 @@
+---
+// Bevisband direkt under heron — lågmält, en rad, mono. Ska inte konkurrera
+// med heron. Siffrorna flyttades hit från Skillnaden.
+---
+
+<section class="statband" aria-label="Tjänsten i siffror">
+  <div class="wrap">
+    <dl class="stats">
+      <div class="stat"><dt class="num">52</dt><dd class="lbl">testade uppdateringsfönster per år</dd></div>
+      <div class="stat"><dt class="num">365</dt><dd class="lbl">verifierade backuper per år</dd></div>
+      <div class="stat"><dt class="num">24/7</dt><dd class="lbl">sårbarhets- och upptidsbevakning</dd></div>
+      <div class="stat"><dt class="num">0</dt><dd class="lbl">larm du själv måste läsa</dd></div>
+    </dl>
+  </div>
+</section>
+
+<style>
+.statband{
+  border-bottom:var(--bw) solid var(--mist);
+  background:var(--paper);
+}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-6);
+  padding:var(--sp-6) 0;
+}
+.stat{display:flex;align-items:baseline;gap:var(--sp-3)}
+.stat .num{
+  font-family:var(--font-mono);font-weight:var(--fw-medium);
+  font-size:var(--fs-md);line-height:1;color:var(--pine);
+  font-feature-settings:"tnum" 1;flex-shrink:0;
+}
+.stat .lbl{
+  font-size:var(--fs-xs);color:var(--ink-soft);line-height:var(--lh-snug);
+}
+@media (max-width:860px){
+  .stats{grid-template-columns:repeat(2,1fr);gap:var(--sp-5)}
+}
+</style>

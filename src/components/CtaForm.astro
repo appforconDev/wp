@@ -20,21 +20,22 @@
 <style>
 .cta{background:var(--bark);color:var(--paper)}
 .cta h2{color:#fff}
-.cta p.sub{color:#b8c2bd;margin-bottom:1.8rem}
+.cta p.sub{color:#b8c2bd;margin-bottom:var(--sp-7);font-size:var(--fs-md)}
 .eyebrow-light{color:#7fd6ae}
-.leadform{display:flex;gap:12px;flex-wrap:wrap;max-width:640px}
+.leadform{display:flex;gap:var(--sp-3);flex-wrap:wrap;max-width:var(--form-max)}
 .leadform input[type=text],.leadform input[type=email]{
-  flex:1 1 220px;padding:14px 16px;border-radius:var(--radius);
-  border:1px solid #3a4a44;background:#28352f;color:#fff;font-size:1rem;
-  font-family:'IBM Plex Sans',sans-serif;
+  flex:1 1 var(--field-min);padding:var(--input-py) var(--input-px);border-radius:var(--radius);
+  border:var(--bw) solid #3a4a44;background:#28352f;color:#fff;font-size:var(--fs-base);
+  font-family:var(--font-sans);transition:border-color var(--t-fast);
 }
 .leadform input::placeholder{color:#8a968f}
-.leadform input:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
+.leadform input:hover{border-color:#4a5b53}
+.leadform input:focus-visible{outline:var(--focus-w) solid var(--pine);outline-offset:var(--focus-offset)}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-.form-msg{margin-top:1rem;font-size:.95rem;min-height:1.4em}
+.form-msg{margin-top:var(--sp-4);font-size:var(--fs-sm);min-height:1.4em}
 .form-msg.ok{color:#7fd6ae}
 .form-msg.err{color:#e8a488}
-.cta .fine{margin-top:1.6rem;font-size:.85rem;color:#8a968f}
+.cta .fine{margin-top:var(--sp-6);font-size:var(--fs-xs);color:#8a968f}
 </style>
 
 <script>
