@@ -1,0 +1,26 @@
+---
+import Driftlogg from './Driftlogg.astro';
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Du ska aldrig behöva tänka på din WordPress-sajt igen.</h1>
+      <p class="lead">Vi håller din sajt uppdaterad, säker och snabb — till fast pris. Varje uppdatering testas i en kopia av din sajt innan den rör den riktiga. Går något ändå fel återställer vi ur gårdagens backup.</p>
+      <a class="btn" href="#halsokoll">Få en kostnadsfri hälsokoll</a>
+      <a class="btn-ghost" href="#priser">Se priser ↓</a>
+    </div>
+
+    <Driftlogg />
+  </div>
+</section>
+
+<style>
+.hero{padding:84px 0 76px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero p.lead{font-size:1.13rem;margin:1.2rem 0 1.8rem;color:var(--ink-soft)}
+@media (max-width:860px){
+  .hero{padding:56px 0}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+}
+</style>

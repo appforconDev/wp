@@ -1,0 +1,80 @@
+---
+---
+
+<section class="section plain" id="priser">
+  <div class="wrap">
+    <p class="eyebrow">Priser</p>
+    <h2>Fast pris. Inga överraskningar.</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Bas</h3>
+        <div class="price">795 kr<span>/mån</span></div>
+        <ul>
+          <li>Veckovisa uppdateringar, testade före driftsättning</li>
+          <li>Daglig backup + återställningsgaranti</li>
+          <li>Säkerhets- och upptidsövervakning dygnet runt</li>
+          <li>Månadsrapport</li>
+          <li class="no">Småändringar ingår ej</li>
+          <li>Påbörjad åtgärd vid driftstopp: 24 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+      <div class="plan featured">
+        <span class="tag">Vanligast</span>
+        <h3>Standard</h3>
+        <div class="price">1 295 kr<span>/mån</span></div>
+        <ul>
+          <li>Allt i Bas</li>
+          <li>Småändringar: 30 min/mån ingår</li>
+          <li>Påbörjad åtgärd vid driftstopp: 8 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+      <div class="plan">
+        <h3>E-handel</h3>
+        <div class="price">2 495 kr<span>/mån</span></div>
+        <ul>
+          <li>Allt i Standard</li>
+          <li>Småändringar: 60 min/mån ingår</li>
+          <li>WooCommerce-bevakning — kassaflödet testas varje vecka</li>
+          <li>Påbörjad åtgärd vid driftstopp: 4 h</li>
+        </ul>
+        <a class="btn" href="#halsokoll">Börja med hälsokollen</a>
+      </div>
+    </div>
+    <p class="price-notes">
+      <strong>Uppstart 1 995 kr</strong> — vi inventerar sajten, samlar alla inloggningar och flyttar den till vår driftmiljö med testkopia och daglig backup. Flytten ingår, och din e-post rörs aldrig.
+      <strong>Betala per år → två månader på köpet.</strong> Alla priser exkl. moms. 3 månaders bindning, sedan en månads uppsägning. Priserna gäller sajter i normalskick — är sajten hackad eller allvarligt eftersatt börjar vi med en engångssanering till fast offert.
+    </p>
+  </div>
+</section>
+
+<style>
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.4rem}
+.plan{background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);padding:30px 26px;display:flex;flex-direction:column}
+.plan.featured{border:2px solid var(--pine);position:relative}
+.plan .tag{
+  position:absolute;top:-13px;left:26px;background:var(--pine);color:#fff;
+  font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 12px;border-radius:99px;
+}
+.plan h3{font-size:1.05rem}
+.price{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:2rem;margin:.5rem 0 1.2rem}
+.price span{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:.9rem;color:var(--ink-soft)}
+.plan ul{list-style:none;flex-grow:1}
+.plan li{
+  font-size:.92rem;padding:9px 0 9px 26px;border-bottom:1px solid var(--mist);
+  position:relative;color:var(--ink-soft);
+}
+.plan li:last-child{border-bottom:none}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--pine);font-weight:600}
+.plan li.no{color:#a8b0ab}
+.plan li.no::before{content:"—";color:#c6ccc8}
+.plan .btn{margin-top:1.4rem;text-align:center}
+.price-notes{margin-top:2rem;font-size:.9rem;color:var(--ink-soft);max-width:70ch}
+.price-notes strong{color:var(--bark)}
+@media (max-width:860px){
+  .plans{grid-template-columns:1fr}
+  .plan.featured{order:-1}
+}
+</style>

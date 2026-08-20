@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">Winbergh<span class="dot">&nbsp;Media</span></a>
+    <a class="navlink" href="/#priser">Priser</a>
+  </div>
+</header>
+
+<slot />
+
+<footer>
+  <div class="wrap row">
+    <span>Winbergh Media, Bollnäs · org.nr [___]</span>
+    <span>Byggd och driftad i Sverige · Backuper lagras inom EU</span>
+    <span><a href="/villkor">Avtalsvillkor</a> · <a href="/integritet">Integritetspolicy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

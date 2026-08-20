@@ -1,0 +1,44 @@
+---
+---
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">Så funkar det</p>
+    <h2>Varje vecka, samma trygga rutin</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">STEG 1</span>
+        <h3>Vi testar först</h3>
+        <p>Varje tisdag uppdateras en exakt kopia av din sajt. Vi jämför skärmdumpar före och efter och testkör dina viktigaste sidor.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 2</span>
+        <h3>Sedan uppdaterar vi på riktigt</h3>
+        <p>Bara när kopian är grön rör vi din riktiga sajt. Blir det rött stannar allt — och du märker ingenting.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 3</span>
+        <h3>Alltid en väg tillbaka</h3>
+        <p>Daglig backup med återställningsgaranti. Kritiska säkerhetshål täpps inom 24 timmar, oavsett veckodag.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEG 4</span>
+        <h3>En rapport i månaden</h3>
+        <p>Du ser exakt vad vi gjort. Resten av tiden hör du inte av oss — det är poängen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:2.2rem}
+.step{background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);padding:26px}
+.step .n{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--pine);
+  font-weight:500;letter-spacing:.08em;display:block;margin-bottom:.7rem;
+}
+.step p{font-size:.97rem;color:var(--ink-soft);margin-top:.4rem}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr}
+}
+</style>

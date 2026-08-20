@@ -1,0 +1,48 @@
+---
+---
+
+<section class="section plain">
+  <div class="wrap">
+    <p class="eyebrow">Vanliga frågor</p>
+    <h2>Bra frågor, raka svar</h2>
+    <div class="faq">
+      <details>
+        <summary>Måste vi byta webbhotell?</summary>
+        <p>Ja — flytten ingår i uppstarten. Det är i vår miljö vi kan testa varje uppdatering i en kopia av sajten innan den går live. Det är den rutinen du betalar för. Din e-post rörs aldrig — den bor kvar precis där den är.</p>
+      </details>
+      <details>
+        <summary>Vad händer om sajten går sönder?</summary>
+        <p>Vi återställer till senaste fungerande backup, oftast inom minuter, och felsöker sedan i lugn och ro i kopian — inte på din live-sajt.</p>
+      </details>
+      <details>
+        <summary>Vem äger sajten?</summary>
+        <p>Du. Alltid. Säger du upp avtalet hjälper vi till med flytten därifrån också.</p>
+      </details>
+      <details>
+        <summary>Vi har premiumtillägg med licenser — hur funkar det?</summary>
+        <p>Vi håller koll på förnyelsedatum åt dig och flaggar 30 dagar innan något går ut. Licenserna står i ditt namn eller förvaltas av oss till självkostnad — du väljer.</p>
+      </details>
+      <details>
+        <summary>Kan ni göra ändringar på sajten?</summary>
+        <p>Ja. Standard och E-handel har tid inkluderad varje månad. Större jobb får du alltid pris på innan vi börjar — inget dyker upp på fakturan i efterhand.</p>
+      </details>
+      <details>
+        <summary>Hur snabbt kommer vi igång?</summary>
+        <p>Normalt inom en vecka från signerat avtal.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq{max-width:760px}
+details{border-bottom:1px solid var(--mist)}
+summary{
+  cursor:pointer;padding:18px 0;font-weight:600;font-size:1rem;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--pine);font-size:1.1rem;flex-shrink:0}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 18px;font-size:.96rem;color:var(--ink-soft)}
+</style>

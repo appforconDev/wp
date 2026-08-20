@@ -1,0 +1,54 @@
+---
+// Signaturen: driftloggen från ett riktigt patchfönster.
+// Rost-färgen (--signal) används ENDAST här — på stopp-raderna. Rör varsamt.
+---
+
+<div class="logcard" aria-label="Exempel ur vår driftlogg">
+  <div class="logcard-head">
+    <span>driftlogg · tisdag 06:00</span>
+    <span class="live"><span class="pulse" aria-hidden="true"></span>bevakas</span>
+  </div>
+  <div class="logline"><span class="t">06:02</span><span>nattens backup verifierad <span class="ok">✓</span></span></div>
+  <div class="logline"><span class="t">06:07</span><span>kopia av sajten skapad <span class="ok">✓</span></span></div>
+  <div class="logline"><span class="t">06:14</span><span>9 uppdateringar installerade i kopian <span class="ok">✓</span></span></div>
+  <div class="logline"><span class="t">06:21</span><span>startsida &amp; kontaktformulär testade <span class="ok">✓</span></span></div>
+  <div class="logline"><span class="t">06:26</span><span>skärmdumpar jämförda — <span class="stop">avvikelse hittad</span></span></div>
+  <div class="logline"><span class="t">06:26</span><span><span class="stop">driftsättning stoppad.</span> din sajt: orörd <span class="ok">✓</span></span></div>
+  <div class="logline"><span class="t">06:31</span><span>felande tillägg undantaget, omtestat, driftsatt <span class="ok">✓</span></span></div>
+</div>
+
+<style>
+.logcard{
+  background:var(--card);border:1px solid var(--mist);border-radius:var(--radius);
+  box-shadow:0 12px 32px rgba(30,42,38,.07);overflow:hidden;
+}
+.logcard-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--mist);
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-soft);
+}
+.logcard-head .live{display:flex;align-items:center;gap:7px}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--pine);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.logline{
+  display:flex;gap:14px;align-items:baseline;
+  padding:11px 18px;border-bottom:1px solid var(--mist);
+  font-family:'IBM Plex Mono',monospace;font-size:.83rem;
+  opacity:0;transform:translateY(4px);animation:reveal .5s ease forwards;
+}
+.logline:last-child{border-bottom:none}
+.logline .t{color:var(--ink-soft);flex-shrink:0}
+.logline .ok{color:var(--pine);font-weight:500}
+.logline .stop{color:var(--signal);font-weight:500}
+.logline:nth-child(2){animation-delay:.15s}
+.logline:nth-child(3){animation-delay:.5s}
+.logline:nth-child(4){animation-delay:.85s}
+.logline:nth-child(5){animation-delay:1.2s}
+.logline:nth-child(6){animation-delay:1.7s}
+.logline:nth-child(7){animation-delay:2.2s}
+@keyframes reveal{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .logline{animation:none;opacity:1;transform:none}
+  .pulse{animation:none}
+}
+</style>

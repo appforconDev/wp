@@ -1,0 +1,71 @@
+---
+---
+
+<section class="section cta" id="halsokoll">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-light">Kostnadsfritt, ingen förpliktelse</p>
+    <h2>Börja med en hälsokoll av din sajt</h2>
+    <p class="sub">Vi skannar din sajt utifrån — säkerhet, hastighet, övergivna tillägg — och skickar en rapport på max fyra sidor i klarspråk. Om allt ser bra ut säger vi det.</p>
+    <form class="leadform" id="leadform" novalidate>
+      <input type="text" name="domain" placeholder="din-sajt.se" aria-label="Din sajts adress" required />
+      <input type="email" name="email" placeholder="namn@foretag.se" aria-label="Din e-postadress" required />
+      <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button class="btn" type="submit">Skicka mig rapporten</button>
+    </form>
+    <p class="form-msg" id="formmsg" role="status" aria-live="polite"></p>
+    <p class="fine">Vi använder adressen för att skicka rapporten och en eventuell uppföljning. Inget nyhetsbrev, ingen spam.</p>
+  </div>
+</section>
+
+<style>
+.cta{background:var(--bark);color:var(--paper)}
+.cta h2{color:#fff}
+.cta p.sub{color:#b8c2bd;margin-bottom:1.8rem}
+.eyebrow-light{color:#7fd6ae}
+.leadform{display:flex;gap:12px;flex-wrap:wrap;max-width:640px}
+.leadform input[type=text],.leadform input[type=email]{
+  flex:1 1 220px;padding:14px 16px;border-radius:var(--radius);
+  border:1px solid #3a4a44;background:#28352f;color:#fff;font-size:1rem;
+  font-family:'IBM Plex Sans',sans-serif;
+}
+.leadform input::placeholder{color:#8a968f}
+.leadform input:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+.form-msg{margin-top:1rem;font-size:.95rem;min-height:1.4em}
+.form-msg.ok{color:#7fd6ae}
+.form-msg.err{color:#e8a488}
+.cta .fine{margin-top:1.6rem;font-size:.85rem;color:#8a968f}
+</style>
+
+<script>
+const form = document.getElementById('leadform') as HTMLFormElement;
+const msg = document.getElementById('formmsg') as HTMLParagraphElement;
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.className = 'form-msg';
+  const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+  if (!data.domain || !data.email || !data.email.includes('@')) {
+    msg.textContent = 'Fyll i både sajtens adress och en giltig e-postadress.';
+    msg.classList.add('err');
+    return;
+  }
+  const btn = form.querySelector('button') as HTMLButtonElement;
+  btn.disabled = true; btn.textContent = 'Skickar…';
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error();
+    form.reset();
+    msg.textContent = 'Tack! Rapporten landar i din inkorg inom två arbetsdagar.';
+    msg.classList.add('ok');
+    btn.textContent = 'Skickat ✓';
+  } catch {
+    msg.textContent = 'Något gick fel — mejla oss direkt på hej@winberghmedia.se så löser vi det.';
+    msg.classList.add('err');
+    btn.disabled = false; btn.textContent = 'Skicka mig rapporten';
+  }
+});
+</script>

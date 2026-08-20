@@ -1,17 +1,23 @@
 ---
-
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
+import Rutin from '../components/Rutin.astro';
+import Priser from '../components/Priser.astro';
+import Arlighet from '../components/Arlighet.astro';
+import Faq from '../components/Faq.astro';
+import CtaForm from '../components/CtaForm.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base
+  title="WordPress-förvaltning till fast pris — Winbergh Media"
+  description="Vi håller din WordPress-sajt uppdaterad, säker och snabb till fast pris. Varje uppdatering testas i en kopia av din sajt innan den rör den riktiga."
+>
+  <Hero />
+  <Problem />
+  <Rutin />
+  <Priser />
+  <Arlighet />
+  <Faq />
+  <CtaForm />
+</Base>

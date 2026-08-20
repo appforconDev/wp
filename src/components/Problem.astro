@@ -1,0 +1,26 @@
+---
+---
+
+<section class="section plain">
+  <div class="wrap">
+    <p class="eyebrow">Känner du igen dig?</p>
+    <h2>Sajten sköter inte sig själv. Men någon måste.</h2>
+    <div class="three">
+      <div class="item"><p>Du skjuter upp uppdateringar för att du är rädd att något ska gå sönder — och varje vecka du väntar är sajten mer sårbar.</p></div>
+      <div class="item"><p>Ingen vet riktigt vilka tillägg som är kritiska, vilka som är övergivna och vilka licenser som gått ut.</p></div>
+      <div class="item"><p>Sajten byggdes av någon som inte längre svarar i telefon.</p></div>
+    </div>
+    <p class="closer">Det är inte ditt jobb att kunna det här. Det är vårt.</p>
+  </div>
+</section>
+
+<style>
+.plain{background:var(--card);border-top:1px solid var(--mist);border-bottom:1px solid var(--mist)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:2rem}
+.three p{font-size:.98rem;color:var(--ink-soft)}
+.three .item{padding-top:1rem;border-top:2px solid var(--bark)}
+.closer{margin-top:2.2rem;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.25rem}
+@media (max-width:860px){
+  .three{grid-template-columns:1fr}
+}
+</style>
