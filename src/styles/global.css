@@ -12,8 +12,9 @@
   --line-2:#c6ccc8;
   --signal:#b4552d;    /* rost — endast i Driftlogg */
 
-  /* ---------- Typsnitt — brand (Bricolage + IBM Plex), vinner enligt scope-regel ---------- */
-  --font-display:'Bricolage Grotesque',sans-serif;
+  /* ---------- Typsnitt — display = profilens rekommendation (Instrument Sans);
+     brödtext/mono = brand (IBM Plex Sans/Mono) ---------- */
+  --font-display:'Instrument Sans',sans-serif;
   --font-sans:'IBM Plex Sans',system-ui,sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
 
